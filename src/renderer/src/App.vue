@@ -173,7 +173,7 @@ const ultimosRegistrosComputados = computed(() => {
     const f = dayjs(registro.final).format("HH:mm:ss DD-MM-YY");
 
     return {
-      duracion: registro.duration,
+      duracion: registro.duracion,
       inicio: i,
       // final: f,
     };

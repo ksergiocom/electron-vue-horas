@@ -1,21 +1,15 @@
 // API base URL
-const URL = "https://api.example.com";
+const URL = "https://api-example.com";
+const TOKEN = ''
 
-// Credentials for basic Auth
-const CREDENTIALS = {
-  username: "my_username",
-  password: "my_password",
-};
 
-// Shared headers for basic Auth fetch. Use ONLY with HTTPS!
+// SOLO CON HTTPS
 const headers = new Headers({
-	Authorization: `Basic ${btoa(
-	  `${CREDENTIALS.username}:${CREDENTIALS.password}`
-	)}`,
+	"Authorization": TOKEN, // <------ Cambiar aqui
   })
 
 export const getTrabajadores = async () => {
-	const res = await fetch(URL + "/api/trabajadores/", {
+	const res = await fetch(URL + "/api/trabajadores", {
 	  headers,
 	})
 	return await res.json();
@@ -23,7 +17,7 @@ export const getTrabajadores = async () => {
 
 export const getLastRegister = async (trabajadorId) => {
 	const res = await fetch(
-	  URL + `/api/registros/${trabajadorId}/ultimo/`,
+	  URL + `/api/registros/${trabajadorId}/ultimo`,
 	  {
 		headers,
 	  }
@@ -33,7 +27,7 @@ export const getLastRegister = async (trabajadorId) => {
 
 export const getLastsRegisters = async (trabajadorId) => {
 	const res = await fetch(
-	  URL + `/api/registros/${trabajadorId}/ultimos/`,
+	  URL + `/api/registros/${trabajadorId}/ultimos`,
 	  {
 		headers,
 	  }
@@ -43,7 +37,7 @@ export const getLastsRegisters = async (trabajadorId) => {
 
 export const postStartRegister = async (trabajadorId) => {
 	const res = await fetch(
-	  URL + `/api/registros/${trabajadorId}/iniciar/`,
+	  URL + `/api/registros/${trabajadorId}/iniciar`,
 	  {
 		method: "POST",
 		headers,
@@ -55,7 +49,7 @@ export const postStartRegister = async (trabajadorId) => {
 
 export const postFinishRegister = async (trabajadorId) => {
 	const res = await fetch(
-	  URL + `/api/registros/${trabajadorId}/ultimo/finalizar/`,
+	  URL + `/api/registros/${trabajadorId}/ultimo/finalizar`,
 	  {
 		method: "POST",
 		headers,
